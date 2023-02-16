@@ -1,0 +1,49 @@
+{
+  "name": "deliver-api",
+  "version": "0.1.0",
+  "description": "A DELIberately Vulnerable E-commeRce API.",
+  "main": "index.js",
+  "scripts": {
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "start": "nodemon ./index.js",
+    "test": "jest --runInBand --detectOpenHandles",
+    "test:coverage": "jest --runInBand --detectOpenHandles --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiridj/deliver-api.git"
+  },
+  "keywords": [],
+  "author": "Jiri De Jagere <jiridj@gmail.com> (https://jiridj.be/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jiridj/deliver-api/issues"
+  },
+  "homepage": "https://github.com/jiridj/deliver-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-actuator": "^1.8.4",
+    "jest": "^29.4.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mongodb-memory-server": "^8.11.4",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.4"
+  }
+}
