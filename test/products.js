@@ -2,7 +2,7 @@ const fs = require('fs');
 const Product = require('../lib/model/product');
 
 const load = async () => {
-  const raw = fs.readFileSync('data/products.json');
+  const raw = fs.readFileSync('test/products.json');
   const data = JSON.parse(raw);
 
   let promises = [];

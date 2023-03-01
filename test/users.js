@@ -2,7 +2,7 @@ const fs = require('fs');
 const User = require('../lib/model/user');
 
 const load = async () => {
-  const raw = fs.readFileSync('data/users-10.json');
+  const raw = fs.readFileSync('test/users.json');
   const data = JSON.parse(raw);
 
   let promises = [];
