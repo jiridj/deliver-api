@@ -1,6 +1,7 @@
 const fs = require('fs');
 const User = require('../lib/model/user');
 
+// Load user documents for unit testing.
 const load = async () => {
   const raw = fs.readFileSync('test/users.json');
   const data = JSON.parse(raw);

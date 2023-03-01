@@ -2,6 +2,7 @@ const Order = require('../lib/model/order');
 const Product = require('../lib/model/product');
 const User = require('../lib/model/user');
 
+// Load order documents for unit testing.
 const load = async () => {
   const p9 = await Product.findByNumber(9);
   const p13 = await Product.findByNumber(13);
