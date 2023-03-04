@@ -47,11 +47,38 @@ Following services are accessible from your localhost with the default configura
 - [Mongo Express](https://github.com/mongo-express/mongo-express) on port 8081
 - DELIVER API on port 3333
 
+## Attack Scenarios
 
-## Attack Plays
+The DELIVER API is vulnerable to the following attack scenarios. This should give you pointers as to how you could try and exploit the vulnerabilities in the application. 
+
+If you are looking for example code that executes these attack plays, please check out the [deliver-attacks](https://github.com/jiridj/deliver-attacks) repository.
+
+### 1. Excessive data exposure in JWT token
+
+If an attacker can obtain a valid token (e.g. via Cross-Site Scripting), they can get lots of user info from the token payload (including the hashed password). The scale at which this can scenario is small and would enable an attacker to compromise a single account. It would have to be combined with e.g. phishing attempts to enable the execution of malicious code while accessing the API. 
+
+### 2. Security misconfiguration (verbose error messages) in login
+
+A failed login attempt returns verbose error messages (user unknown vs wrong password). This makes it easy for attackers to cross-reference email lists to build a list of user accounts. This scenario enables the attacker to target a larger scale as lists of email addresses from other leaks are available on the Dark Web. A great tool for raising awareness around leaked account info is [Have I Been Pwned?](https://haveibeenpwned.com/).
+
+### 3. Broken Object-level Authorization in order controller
+
+An attacker can sign up for their own account. The BOLA vulnerability in the order endpoint of the API enables the attacker to fetch all orders by simply enumerating the order number. The order info contains account information which enables the attacker to build a complete list of user accounts to attack.
+
+### 4. Lack of rate limiting enables brute forcing password reset
+
+Once the email address for a user account is known, an attacker can brute force the four digit one-time password and reset the password. From that point onwards the user account is compromised and any user data is accessible to the attacker.
+
+### 5. Mass assignment enables you to sign up as an administrator
+
+The admin role is assigned to user accounts via a hidden property on the user object. An attacker can sign up as admin and access any and all user account information via the admin API. 
 
 ## Mentions
 
-- APIsec University
-- Fake Store API
-- Acronymify
+- A few months ago [APIsec](https://apisec.ai) launched the free [APIsec University](https://www.apisecuniversity.com/) in collaboration with Corey Ball. The penetration testing course here is one of the most comprehensive and well constructed training I have ever come across on this topic. It served as inspiration for this demo project. 
+
+- I have reused the product data from [Fake Store API](https://fakestoreapi.com/), which is a great mock backend to use when creating new e-commerce website prototypes. 
+
+- I have used the awesome mock data generator by [Mockaroo](https://www.mockaroo.com/) for generating user account data. If you need to generate for tests or demos, check it out!
+
+- [Acronymify](https://acronymify.com/) helped me come up with the name for the demo project.
