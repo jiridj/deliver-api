@@ -2,7 +2,6 @@
 
 ![build](https://img.shields.io/github/actions/workflow/status/jiridj/deliver-api/cicd.yml)
 ![coverage](https://img.shields.io/codecov/c/gh/jiridj/deliver-api?token=35GE4E56NO)
-![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/jiridj/deliver-api)
 [![open issues](https://img.shields.io/github/issues-raw/jiridj/deliver-api)](https://github.com/jiridj/deliver-api/issues)
 
 As suggested by the name, the DELIVER API is a sample application with deliberate API vulnerabilities. My intent is to provide a demo scenario for common API vulnerabilities and how they can be exploited. This sample application can also be used to demonstrate how certain tools can help detect, alert and mitigate these vulnerabilities at scale. The goal is to raise awareness around API security needs. 
