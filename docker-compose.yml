@@ -37,8 +37,8 @@ services:
       - 8081:8081
 
   deliver-api:
-    build:
-      context: .
+    # build:
+    #   context: .
     image: jiridj/deliver-api
     container_name: deliver-api
     restart: unless-stopped

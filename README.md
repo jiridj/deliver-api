@@ -32,7 +32,10 @@ Make sure your Docker environment is good to go. This will depend on how you've 
 docker-compose up -d
 ```
 
-The stack will pull the mongodb and mongo-express images, and seed the database with sample data. It will build and run the jiridj/deliver-api image locally.
+The stack will pull the mongodb, mongo-express and jiridj/deliver-api images from [Docker Hub](https://hub.docker.com) and seed the database with sample data. 
+
+> **Note:**
+>If instead you wish to build the deliver-api image locally, simply uncomment the build instructions in the [docker-compose.yml](docker-compose.yml) file.
 
 Following services are accessible from your localhost with the default configuration provided:
 
