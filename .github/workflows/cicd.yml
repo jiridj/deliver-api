@@ -1,0 +1,49 @@
+name: cicd
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm install
+      - run: npm run lint:check
+      - run: npm run format:check
+      - run: npm run test:coverage
+      - uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: false
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'openapi.yml'
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [verify]
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/setup-qemu-action@v2
+      - uses: docker/setup-buildx-action@v2
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - uses: docker/build-push-action@v4
+        with:
+          context: .
+          tags: |
+            jiridj/deliver-api:$GITHUB_REF_NAME
+            jiridj/deliver-api:latest

@@ -15,7 +15,7 @@ The DELIVER API provides the backend for an e-Commerce shop. The API comes pre-l
 
 Via the API you can create and manage a user account, query products, query and create orders. The API also provides administrator users the ability to manage user accounts.
 
-The [OpenAPI specification](openapi.yaml) provides complete documentation for the API. 
+The [OpenAPI specification](openapi.yml) provides complete documentation for the API. 
 
 ## Running the application
 
