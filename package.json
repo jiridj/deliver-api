@@ -8,9 +8,10 @@
     "format:fix": "prettier --write .",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start": "nodemon ./index.js",
     "test": "jest --runInBand --detectOpenHandles",
-    "test:coverage": "jest --runInBand --detectOpenHandles --coverage"
+    "test:coverage": "jest --runInBand --detectOpenHandles --coverage",
+    "start:dev": "nodemon ./index.js",
+    "start:prod": "node index.js"
   },
   "repository": {
     "type": "git",

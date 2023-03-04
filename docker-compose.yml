@@ -36,5 +36,18 @@ services:
     ports:
       - 8081:8081
 
+  deliver-api:
+    build:
+      context: .
+    image: jiridj/deliver-api
+    container_name: deliver-api
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3333:3333
+    depends_on:
+      - mongo-db
+
 volumes:
   deliver_data:
