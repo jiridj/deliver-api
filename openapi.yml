@@ -656,10 +656,16 @@ components:
           items:
             $ref: '#/components/schemas/product'
     status:
-      type: string
-      example: UP
+      type: object
+      properties:
+        status:
+          type: string
+          example: UP
     token:
-      type: string
+      type: object
+      properties:
+        token:
+          type: string
     user:
       type: object
       required:
