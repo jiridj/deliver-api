@@ -75,7 +75,7 @@ The admin role is assigned to user accounts via a hidden property on the user ob
 
 ## Mentions
 
-- A few months ago [APIsec](https://apisec.ai) launched the free [APIsec University](https://www.apisecuniversity.com/) in collaboration with Corey Ball. The penetration testing course here is one of the most comprehensive and well constructed training I have ever come across on this topic. It served as inspiration for this demo project. 
+- A few months ago [APIsec](https://apisec.ai) launched the free [APIsec University](https://www.apisecuniversity.com/) in collaboration with Corey Ball. The penetration testing course here is one of the most comprehensive and well constructed courses I have ever come across on this topic. It served as inspiration for this demo project. 
 
 - I have reused the product data from [Fake Store API](https://fakestoreapi.com/), which is a great mock backend to use when creating new e-commerce website prototypes. 
 
