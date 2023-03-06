@@ -1,7 +1,7 @@
 openapi: '3.0.2'
 info:
   title: DELIVER API
-  version: '0.1.0'
+  version: 'latest'
   description: |
     A DELIberately Vulnerable E-commeRce API. The DELIVER API is a sample
     API application with deliberate API vulnerabilities. It was created

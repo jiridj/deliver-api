@@ -57,8 +57,14 @@ jobs:
     #if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
+      - uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: './docs/specification/openapi.yml'
+          propertyPath: 'info.version'
+          value: ${{ github.ref_name }}
+          commitChange: false
       - uses: bump-sh/github-action@v1
         with:
           doc: ${{ secrets.BUMP_DOC_ID }}
           token: ${{ secrets.BUMP_ACCESS_TOKEN }}
-          file: docs/specification/openapi.yml
+          file: ./docs/specification/openapi.yml
