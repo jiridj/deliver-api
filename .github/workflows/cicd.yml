@@ -11,7 +11,7 @@ on:
       - v*
 
 jobs:
-  verify:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,9 +31,19 @@ jobs:
           options: -v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }}
           run: spectral lint --ruleset ./docs/specification/.spectral.yml ./docs/specification/*.yml
 
-  build:
+  release:
     runs-on: ubuntu-latest
     needs: [verify]
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    steps: 
+      - uses: actions/checkout@v3 
+      - uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+
+  push:
+    runs-on: ubuntu-latest
+    needs: [release]
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
@@ -51,9 +61,9 @@ jobs:
             jiridj/deliver-api:${{ github.ref_name }}
             jiridj/deliver-api:latest
 
-  docs:
+  publish:
     runs-on: ubuntu-latest
-    needs: [verify]
+    needs: [release]
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
