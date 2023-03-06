@@ -44,6 +44,7 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           context: .
+          push: true
           tags: |
             jiridj/deliver-api:${{ github.ref_name }}
             jiridj/deliver-api:latest
