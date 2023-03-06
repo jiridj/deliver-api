@@ -25,9 +25,11 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: false
-      - uses: stoplightio/spectral-action@latest
+      - uses: addnab/docker-run-action@v3
         with:
-          file_glob: 'openapi.yml'
+          image: stoplight/spectral:latest
+          options: -v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }}
+          run: spectral lint --ruleset ./docs/specification/.spectral.yml ./docs/specification/*.yaml
 
   build:
     runs-on: ubuntu-latest
