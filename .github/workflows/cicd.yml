@@ -45,5 +45,5 @@ jobs:
         with:
           context: .
           tags: |
-            jiridj/deliver-api:$GITHUB_REF_NAME
+            jiridj/deliver-api:${{ github.ref_name }}
             jiridj/deliver-api:latest
