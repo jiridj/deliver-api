@@ -38,13 +38,38 @@ Via the API you can create and manage a user account, query products, query and 
 
 The [OpenAPI specification](openapi.yml) details all available operations for the API. We also have [beautiful API documentation](https://bump.sh/jiridj/doc/deliver-api) hosted on [bump.sh](https://bump.sh/jiridj/doc/deliver-api).
 
-## Running the application
+## Installation
 
-The application has been packaged to run in docker and be pre-loaded with sample data. First, clone this repository so you have a local working copy.
+### Using the pre-built image
+
+Simply use the `docker-compose.yml` file from the root of this repository. 
+
+Make sure your Docker environment is good to go. This will depend on how you've installed Docker onto your machine (e.g. [Docker Desktop](https://www.docker.com/products/docker-desktop/), [Rancher Desktop](https://rancherdesktop.io/), [Colima](https://github.com/abiosoft/colima)) and start the docker-compose stack. 
+
+```bash
+docker-compose up -d
+```
+
+The stack will pull the `mongodb`, `mongo-express` and `jiridj/deliver-api` images from [Docker Hub](https://hub.docker.com) and seed the database with sample data.
+
+### Building from source
+
+First, clone this repository so you have a local working copy. 
 
 ```bash
 git clone git@github.com:jiridj/deliver-api.git
 cd deliver-api
+```
+
+When you wish to build the `jiridj/deliver-api` image locally, simply uncomment the build instructions in the [docker-compose.yml](docker-compose.yml) file.
+
+```yaml
+services:
+  ...
+  deliver-api:
+    build:
+      context: .
+  ...
 ```
 
 Make sure your Docker environment is good to go. This will depend on how you've installed Docker onto your machine (e.g. [Docker Desktop](https://www.docker.com/products/docker-desktop/), [Rancher Desktop](https://rancherdesktop.io/), [Colima](https://github.com/abiosoft/colima)) and start the docker-compose stack. 
@@ -53,10 +78,9 @@ Make sure your Docker environment is good to go. This will depend on how you've 
 docker-compose up -d
 ```
 
-The stack will pull the mongodb, mongo-express and jiridj/deliver-api images from [Docker Hub](https://hub.docker.com) and seed the database with sample data. 
+The stack will pull the `mongodb` and `mongo-express` images from [Docker Hub](https://hub.docker.com), seed the database with sample data, and build the `jiridj/deliver-api` image locally. 
 
-> **Note:**
->If instead you wish to build the deliver-api image locally, simply uncomment the build instructions in the [docker-compose.yml](docker-compose.yml) file.
+### Once installed
 
 Following services are accessible from your localhost with the default configuration provided:
 
