@@ -2,11 +2,28 @@ openapi: '3.0.2'
 info:
   title: DELIVER API
   version: '0.1.0'
+  description: |
+    A DELIberately Vulnerable E-commeRce API. The DELIVER API is a sample
+    API application with deliberate API vulnerabilities. It was created
+    with the intent to provide a somewhat realistic demo scenario to 
+    illustrate how API vulnerabilities can be exploited.
+
+    The DELIVER project includes following assets, each available in its 
+    own GitHub repository:
+    - [DELIVER API](https://github.com/jiridj/deliver-api): An e-Commerce
+      store backend as an API implemented with Express and MongoDB. 
+    - [DELIVER WEB](https://github.com/jiridj/deliver-web): A simple 
+      e-Commerce web application implemented as a VueJS-based single-page 
+      app.
+    - [DELIVER ATTACKS](https://github.com/jiridj/deliver-attacks): 
+      NodeJS-based examples of how an attacker could exploit the API's
+      vulnerabilities.
+
+    Feel free to log issues or contribute to the demo assets via pull 
+    requests.
   contact:
     name: Jiri De Jagere
-    url: https://github.com/jiridj/deliver-api/issues
-  description: |
-    A DELIberately Vulnerable E-commeRce API.
+    url: https://github.com/jiridj/deliver-api
 
 servers:
   - url: http://localhost:3333
@@ -14,23 +31,31 @@ servers:
 
 tags:
   - name: admin
-    description: Admin-only functions
+    description: |
+      Admin-only functions. The user must have been assigned the 
+      admin role.
   - name: authentication
-    description: Authentication functions
+    description: |
+      Authentication functions. These provide account signup, login 
+      and password reset capabilities.
   - name: order
-    description: Order functions
+    description: |
+      Order functions. These enable a user to create and view orders.
   - name: product
-    description: Product functions
+    description: |
+      Product functions. These enable public access to product information.
   - name: user
-    description: User functions
+    description: |
+      User functions. These enable a user to manage their account information.
   - name: system
-    description: System functions
+    description: |
+      System functions. Check the health of the API application.
 
 paths:
   /admin/user:
     get:
       operationId: getUsers
-      description: Get a page of user accounts
+      description: Get a page of user accounts.
       tags:
         - admin
       security:
@@ -65,7 +90,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       operationId: createUser
-      description: Create a new user account
+      description: Create a new user account.
       tags:
         - admin
       security:
@@ -90,7 +115,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       operationId: updateUser
-      description: Updates a user account
+      description: Updates a user account.
       tags:
         - admin
       security:
@@ -122,7 +147,7 @@ paths:
   /admin/user/{email}:
     delete:
       operationId: deleteUser
-      description: Deletes a user account
+      description: Deletes a user account.
       tags:
         - admin
       security:
@@ -139,7 +164,7 @@ paths:
         '200':
           description: Returns the updated user account.
         '401':
-          description: Admin privileges required
+          description: Admin privileges required.
           content:
             application/json:
               schema:
@@ -152,7 +177,7 @@ paths:
                 $ref: '#/components/schemas/error'
     get:
       operationId: getUser
-      description: Gets user account details
+      description: Gets user account details.
       tags:
         - admin
       security:
@@ -160,7 +185,7 @@ paths:
       parameters:
         - in: path
           name: email
-          description: The email address of the user to fetch
+          description: The email address of the user to fetch.
           required: true
           schema:
             type: string
@@ -173,13 +198,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/user'
         '401':
-          description: Admin privileges required
+          description: Admin privileges required.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
         '404':
-          description: User not found
+          description: User not found.
           content:
             application/json:
               schema:
@@ -187,7 +212,7 @@ paths:
   /auth/login:
     post:
       operationId: login
-      description: Log in and get a JWT token
+      description: Log in and get a JWT token.
       tags:
         - authentication
       requestBody:
@@ -204,7 +229,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/token'
         '401':
-          description: Login failed
+          description: Login failed.
           content:
             application/json:
               schema:
@@ -212,7 +237,7 @@ paths:
   /auth/signup:
     post:
       operationId: signup
-      description: Sign up as a user
+      description: Sign up as a user.
       tags:
         - authentication
       requestBody:
@@ -223,9 +248,9 @@ paths:
               $ref: '#/components/schemas/user'
       responses:
         '200':
-          description: User successfully signed up
+          description: User successfully signed up.
         '400':
-          description: Failed to sign up the user
+          description: Failed to sign up the user.
           content:
             application/json:
               schema:
@@ -233,7 +258,7 @@ paths:
   /auth/reset:
     post:
       operationId: requestPasswordReset
-      description: Request a password reset
+      description: Request a password reset.
       tags:
         - authentication
       requestBody:
@@ -248,16 +273,17 @@ paths:
                   example: overrillo0@redcross.org
       responses:
         '200':
-          description: Password reset requested and one time password generated
+          description: |
+            Password reset requested and one time password generated.
         '404':
-          description: Unknown user
+          description: Unknown user.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
     put:
       operationId: resetPassword
-      description: Reset a user's password
+      description: Reset a user's password.
       tags:
         - authentication
       requestBody:
@@ -276,9 +302,9 @@ paths:
                   type: string
       responses:
         '200':
-          description: Password reset requested and one-time password generated
+          description: Password reset requested and one-time password generated.
         '401':
-          description: Invalid one-time password
+          description: Invalid one-time password.
           content:
             application/json:
               schema:
@@ -286,7 +312,7 @@ paths:
   /info:
     get:
       operationId: getAppInfo
-      description: Get the application build information
+      description: Get the application build information.
       tags:
         - system
       responses:
@@ -299,7 +325,7 @@ paths:
   /health:
     get:
       operationId: getAppStatus
-      description: Get the system status of the application
+      description: Get the system status of the application.
       tags:
         - system
       responses:
@@ -312,7 +338,7 @@ paths:
   /metrics:
     get:
       operationId: getAppMetrics
-      description: Get status metrics for the application
+      description: Get status metrics for the application.
       tags:
         - system
       responses:
@@ -325,21 +351,21 @@ paths:
   /order:
     get:
       operationId: getOrders
-      description: Get all orders for the logged in user
+      description: Get all orders for the logged in user.
       tags:
         - order
       security:
         - bearerAuth: []
       responses:
         '200':
-          description: Returns the logged in user's orders
+          description: Returns the logged in user's orders.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/orders'
     post:
       operationId: createOrder
-      description: Create a new order for the logged in user
+      description: Create a new order for the logged in user.
       tags:
         - order
       security:
@@ -352,7 +378,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Returns the newly created order
+          description: Returns the newly created order.
           content:
             application/json:
               schema:
@@ -360,9 +386,11 @@ paths:
   /order/{orderNumber}:
     get:
       operationId: getOrder
-      description: Get the details for an order
+      description: Get the details for an order.
       tags:
         - order
+      security:
+        - bearerAuth: []
       parameters:
         - in: path
           name: orderNumber
@@ -379,7 +407,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/order'
         '404':
-          description: Product not found
+          description: Product not found.
           content:
             application/json:
               schema:
@@ -387,7 +415,7 @@ paths:
   /product:
     get:
       operationId: getProducts
-      description: Get a page of products
+      description: Get a page of products.
       tags:
         - product
       parameters:
@@ -415,7 +443,7 @@ paths:
   /product/{productNumber}:
     get:
       operationId: getProduct
-      description: Get the details for a product
+      description: Get the details for a product.
       tags:
         - product
       parameters:
@@ -428,7 +456,7 @@ paths:
             type: integer
       responses:
         '200':
-          description: Returns a product details.
+          description: Returns a product's details.
           content:
             application/json:
               schema:
@@ -442,7 +470,7 @@ paths:
   /user:
     delete:
       operationId: deleteAccount
-      description: Delete the currently logged in user
+      description: Delete the currently logged in user.
       tags:
         - user
       security:
@@ -459,34 +487,34 @@ paths:
                   example: overrillo0@redcross.org
       responses:
         '200':
-          description: Returns the updated user's details
+          description: Returns the updated user's details.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/user'
         '403':
-          description: Forbidden to try and delete another user's account
+          description: Forbidden to try and delete another user's account.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
     get:
       operationId: getAccount
-      description: Get the user details of the currently logged in user
+      description: Get the user details of the currently logged in user.
       tags:
         - user
       security:
         - bearerAuth: []
       responses:
         '200':
-          description: Returns the logged in user's details
+          description: Returns the logged in user's details.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/user'
     put:
       operationId: updateAccount
-      description: Update the details of the currently logged in user
+      description: Update the details of the currently logged in user.
       tags:
         - user
       security:
@@ -499,13 +527,13 @@ paths:
               $ref: '#/components/schemas/user'
       responses:
         '200':
-          description: Returns the updated user's details
+          description: Returns the updated user's details.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/user'
         '403':
-          description: Forbidden to try and update another user's details
+          description: Forbidden to try and update another user's details.
           content:
             application/json:
               schema:
@@ -517,6 +545,11 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+      description: |
+        All functions that require authentication use JWT tokens. 
+        You must first successfully log in via the /auth/login
+        endpoint, which will generate a JWT token for you to use 
+        in subsequent API calls.
   schemas:
     build:
       type: object

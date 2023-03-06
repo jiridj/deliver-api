@@ -4,7 +4,24 @@
 ![coverage](https://img.shields.io/codecov/c/gh/jiridj/deliver-api?token=35GE4E56NO)
 [![open issues](https://img.shields.io/github/issues-raw/jiridj/deliver-api)](https://github.com/jiridj/deliver-api/issues)
 
-As suggested by the name, the DELIVER API is a sample application with deliberate API vulnerabilities. My intent is to provide a demo scenario for common API vulnerabilities and how they can be exploited. This sample application can also be used to demonstrate how certain tools can help detect, alert and mitigate these vulnerabilities at scale. The goal is to raise awareness around API security needs. 
+A DELIberately Vulnerable E-commeRce API. The DELIVER API is a sample
+API application with deliberate API vulnerabilities. It was created
+with the intent to provide a somewhat realistic demo scenario to 
+illustrate how API vulnerabilities can be exploited.
+
+The DELIVER project includes following assets, each available in its 
+own GitHub repository:
+- [DELIVER API](https://github.com/jiridj/deliver-api): An e-Commerce
+  store backend as an API implemented with Express and MongoDB. 
+- [DELIVER WEB](https://github.com/jiridj/deliver-web): A simple 
+  e-Commerce web application implemented as a VueJS-based single-page 
+  app.
+- [DELIVER ATTACKS](https://github.com/jiridj/deliver-attacks): 
+  NodeJS-based examples of how an attacker could exploit the API's
+  vulnerabilities.
+
+Feel free to log issues or contribute to the demo assets via pull 
+requests. 
 
 > **Note:**
 > While inspired by the [OWASP API Top 10](https://owasp.org/www-project-api-security/), it is not my intention to provide a comprehensive set of examples for all vulnerabilities in the top 10. If you are looking for such examples, I recommend you take a look at following awesome projects that are great learning resources:
