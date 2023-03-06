@@ -1,6 +1,6 @@
 {
   "name": "deliver-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A DELIberately Vulnerable E-commeRce API.",
   "main": "index.js",
   "scripts": {
