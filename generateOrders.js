@@ -38,8 +38,6 @@ const connect = async () => {
 };
 
 const generate = async () => {
-  let generated = 0;
-
   let result = await User.query();
   let page = result.page;
   let count = result.total;
