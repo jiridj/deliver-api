@@ -51,7 +51,8 @@ const generate = async () => {
 
     let promises = [];
     users.forEach((user) => {
-      promises.push(generateOrders(user));
+      if (user.role != 'admin') promises.push(generateOrders(user));
+      else logger.info(`Skipping admin user ${user.email}`);
     });
 
     await Promise.all(promises);
