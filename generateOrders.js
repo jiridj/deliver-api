@@ -38,6 +38,8 @@ const connect = async () => {
 };
 
 const generate = async () => {
+  let generated = 0;
+
   let result = await User.query();
   let page = result.page;
   let count = result.total;
@@ -51,7 +53,8 @@ const generate = async () => {
 
     let promises = [];
     users.forEach((user) => {
-      promises.push(generateOrders(user));
+      if (user.role != 'admin') promises.push(generateOrders(user));
+      else logger.info(`Skipping admin user ${user.email}`);
     });
 
     await Promise.all(promises);
