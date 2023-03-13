@@ -1,0 +1,49 @@
+{
+  "_id": "640f1cabfffe7e8a009516a5",
+  "number": 2,
+  "user": {
+    "_id": "640f1caafffe7e8a00951648",
+    "email": "overrillo0@redcross.org"
+  },
+  "orderLines": [
+    {
+      "product": {
+        "_id": "640f1caafffe7e8a00951678",
+        "number": 13,
+        "title": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+        "price": 599,
+        "description": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
+        "category": "electronics",
+        "image": "img/81QpkIctqPL._AC_SX679_.jpg",
+        "rating": {
+          "rate": 2.9,
+          "count": 250,
+          "_id": "640f1caafffe7e8a00951679"
+        },
+        "__v": 0
+      },
+      "quantity": 2,
+      "_id": "640f1cabfffe7e8a009516a6"
+    },
+    {
+      "product": {
+        "_id": "640f1caafffe7e8a0095167a",
+        "number": 14,
+        "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+        "price": 999.99,
+        "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+        "category": "electronics",
+        "image": "img/81Zt42ioCgL._AC_SX679_.jpg",
+        "rating": {
+          "rate": 2.2,
+          "count": 140,
+          "_id": "640f1caafffe7e8a0095167b"
+        },
+        "__v": 0
+      },
+      "quantity": 3,
+      "_id": "640f1cabfffe7e8a009516a7"
+    }
+  ],
+  "__v": 0
+}
