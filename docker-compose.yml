@@ -29,6 +29,8 @@ services:
     depends_on:
       - mongo-db
     restart: unless-stopped
+    mem_limit: 128m
+    mem_reservation: 64m
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo-db
       ME_CONFIG_MONGODB_ADMINUSERNAME: Administrator
@@ -44,6 +46,8 @@ services:
     image: jiridj/deliver-api
     container_name: deliver-api
     restart: unless-stopped
+    mem_limit: 128m
+    mem_reservation: 64m
     environment:
       - NODE_ENV=development
     ports:
