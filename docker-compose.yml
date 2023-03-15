@@ -5,6 +5,8 @@ services:
     image: mongo
     container_name: deliver-mongo-db
     restart: unless-stopped
+    mem_limit: 512m
+    mem_reservation: 128m
     environment:
       MONGO_INITDB_ROOT_USERNAME: Administrator
       MONGO_INITDB_ROOT_PASSWORD: manage
@@ -27,8 +29,6 @@ services:
     depends_on:
       - mongo-db
     restart: unless-stopped
-    mem_limit: 512m
-    mem_reservation: 128m
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo-db
       ME_CONFIG_MONGODB_ADMINUSERNAME: Administrator
