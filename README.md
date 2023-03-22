@@ -36,8 +36,6 @@ The DELIVER API provides the backend for an e-Commerce shop. The API comes pre-l
 
 Via the API you can create and manage a user account, query products, query and create orders. The API also provides administrator users the ability to manage user accounts.
 
-The [OpenAPI specification](openapi.yml) details all available operations for the API. We also have [beautiful API documentation](https://bump.sh/jiridj/doc/deliver-api) hosted on [bump.sh](https://bump.sh/jiridj/doc/deliver-api).
-
 ## Installation
 
 ### Using the pre-built image
