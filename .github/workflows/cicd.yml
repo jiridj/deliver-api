@@ -55,8 +55,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
-          context: .
           platforms: linux/amd64,linux/arm64
+          context: .
           tags: |
             jiridj/deliver-api:${{ github.ref_name }}
             jiridj/deliver-api:latest
