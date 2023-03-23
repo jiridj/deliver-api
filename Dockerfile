@@ -11,7 +11,7 @@ ENV MONGODB_PASSWORD=s3cr3t
 ENV NODE_ENV=production
 
 WORKDIR /app
-RUN npm install -g npm
+#RUN npm install -g npm
 
 COPY . /app
 RUN npm install
