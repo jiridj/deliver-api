@@ -44,7 +44,7 @@
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "mongodb-memory-server": "^8.15.1",
+    "mongodb-memory-server": "^9.4.0",
     "nodemon": "^2.0.22",
     "prettier": "^3.0.3",
     "supertest": "^6.3.3"
